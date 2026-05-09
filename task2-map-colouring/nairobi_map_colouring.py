@@ -1,18 +1,8 @@
-# ============================================================
-# Task 2(b) – Constraint Satisfaction Problem (CSP)
-# Map Colouring – Nairobi 17 Sub-Counties
-# Finds the LEAST number of colours needed
-# Foundations of Artificial Intelligence
-# ============================================================
-
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import matplotlib.patheffects as pe
 import numpy as np
-
-# ─────────────────────────────────────────────
 # STEP 1: Define Nairobi's 17 Sub-Counties & Adjacency
-# ─────────────────────────────────────────────
 
 sub_counties = [
     'Westlands', 'Dagoretti North', 'Dagoretti South', 'Langata',
@@ -43,9 +33,7 @@ adjacency = {
     'Mathare':          ['Kasarani', 'Ruaraka', 'Kamukunji', 'Starehe'],
 }
 
-# ─────────────────────────────────────────────
 # STEP 2: CSP Solver – Try Minimum Colours First
-# ─────────────────────────────────────────────
 
 def is_valid(node, colour, assignment):
     for neighbour in adjacency[node]:
@@ -78,10 +66,7 @@ def solve_with_minimum_colours(nodes):
             print(f"   ✅ Solved with {num_colours} colours!\n")
             return result, colours
     return None, []
-
-# ─────────────────────────────────────────────
 # STEP 3: Solve
-# ─────────────────────────────────────────────
 
 print("=" * 55)
 print("   Nairobi Sub-Counties Map Colouring – CSP Solver")
@@ -99,10 +84,7 @@ if solution:
 else:
     print("No solution found.")
     exit()
-
-# ─────────────────────────────────────────────
 # STEP 4: Verify Constraints
-# ─────────────────────────────────────────────
 
 print("Constraint Check:")
 all_ok = True
@@ -114,9 +96,7 @@ for sc, neighbours in adjacency.items():
 if all_ok:
     print("   ✅ All constraints satisfied – no adjacent sub-counties share a colour!\n")
 
-# ─────────────────────────────────────────────
 # STEP 5: Visualise the Nairobi Map
-# ─────────────────────────────────────────────
 
 # Colour palette
 palette = {
