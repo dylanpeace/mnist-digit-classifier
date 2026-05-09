@@ -1,17 +1,10 @@
-# ============================================================
-# Task 2(a) – Constraint Satisfaction Problem (CSP)
-# Map Colouring – Australia (5 Regions, 3 Colours)
-# Foundations of Artificial Intelligence
-# ============================================================
-
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from matplotlib.patches import FancyBboxPatch
 import numpy as np
 
-# ─────────────────────────────────────────────
-# STEP 1: Define the Regions and Adjacency
-# ─────────────────────────────────────────────
+
+# Define the Regions and Adjacency
 
 # Five main regions of Australia (simplified)
 regions = [
@@ -33,9 +26,7 @@ adjacency = {
 
 colours = ['Blue', 'Red', 'Green']
 
-# ─────────────────────────────────────────────
-# STEP 2: CSP Solver using Backtracking
-# ─────────────────────────────────────────────
+# CSP Solver using Backtracking
 
 def is_valid(region, colour, assignment):
     """Check if assigning this colour to this region violates any constraint."""
@@ -65,9 +56,8 @@ def backtrack(assignment):
 
     return None  # No valid colour found – trigger backtrack
 
-# ─────────────────────────────────────────────
-# STEP 3: Solve the CSP
-# ─────────────────────────────────────────────
+# Solve the CSP
+
 
 print("=" * 50)
 print("   Australia Map Colouring – CSP Solver")
@@ -83,9 +73,7 @@ if solution:
 else:
     print("\n❌ No solution found.")
 
-# ─────────────────────────────────────────────
-# STEP 4: Verify No Adjacent Regions Share a Colour
-# ─────────────────────────────────────────────
+# Verify No Adjacent Regions Share a Colour
 
 print("Constraint Check (no adjacent regions share a colour):")
 all_ok = True
@@ -97,9 +85,7 @@ for region, neighbours in adjacency.items():
 if all_ok:
     print("   ✅ All constraints satisfied!\n")
 
-# ─────────────────────────────────────────────
-# STEP 5: Visualise the Coloured Map
-# ─────────────────────────────────────────────
+#  Visualise the Coloured Map
 
 colour_map = {
     'Blue':  '#4A90D9',
